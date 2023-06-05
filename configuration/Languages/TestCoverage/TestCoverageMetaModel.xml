@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<metaModel file_level="client" file_no="203">
+    <!-- 
+    Ids are between 2 203 000 to 2 203 999, in the client range zone (2 000 000 to 10 000 000).
+	Reservation made on 02/Dec/2022 in  https://confluence.castsoftware.com/display/PSTS/UA+Corner
+    -->   
+	
+    <!-- choose a name that will not clash -->
+    <category name="Coverage_Cat" rid="0">
+        <description></description>
+        <!-- add new properties here, one for each quality rule or other purpose, incrementing the INF_SUB_TYPE value -->
+        
+        <property name="coverageTool" type="string" rid="1">
+            <description>Coverage tool</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672001"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        
+        <property name="coverageRatio" type="string" rid="2">
+            <description>Coverage ratio</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672002"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+
+
+        <property name="branchToCover" type="integer" rid="3">
+            <description>Branches to cover</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672003"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="branchMissed" type="integer" rid="4">
+            <description>Branches missed</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672004"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        <property name="branchCovered" type="integer" rid="5">
+            <description>Branches covered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672005"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        
+        <property name="lineToCover" type="integer" rid="6">
+            <description>Lines to cover</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672006"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="lineMissed" type="integer" rid="7">
+            <description>Lines missed</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672007"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        <property name="lineCovered" type="integer" rid="8">
+            <description>Lines covered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672008"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+
+
+        <property name="instructionToCover" type="integer" rid="9">
+            <description>Instructions to cover</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672009"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="instructionMissed" type="integer" rid="10">
+            <description>Instructions missed</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672010"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        <property name="instructionCovered" type="integer" rid="11">
+            <description>Instructions covered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720011"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property> 
+        
+        <property name="complexityToCover" type="integer" rid="12">
+            <description>Complexity to cover</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720012"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="complexityMissed" type="integer" rid="13">
+            <description>Complexity missed</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="2672013"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        <property name="complexityCovered" type="integer" rid="14">
+            <description>Complexity covered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720014"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property> 
+        
+        <property name="methodToCover" type="integer" rid="15">
+            <description>Methods to cover</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720015"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        <property name="methodMissed" type="integer" rid="16">
+            <description>Methods missed</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720016"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        <property name="methodCovered" type="integer" rid="17">
+            <description>Methods covered</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720017"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>
+        
+        <property name="isjacococovered" type="integer" rid="18">
+            <description>Is covered according to jacoco</description>
+            <attribute name="ACCESS_APPVIEW" intValue="1"/>
+            <attribute name="ACCESS_CVS" intValue="1"/>
+            <attribute name="ACCESS_HTML" intValue="1"/>
+            <attribute name="INF_TYPE" intValue="26720018"/>
+            <attribute name="INF_SUB_TYPE" intValue="0"/>
+        </property>        
+        
+        
+    </category>
+
+  <!--
+     Add properties to existing types of Java analyzer
+  -->
+  <partialType name="JV_CLASS">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>
+  <partialType name="JV_GENERIC_CLASS">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>
+   <partialType name="JV_INST_CLASS">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>
+  <partialType name="JV_METHOD">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>
+  <partialType name="JV_GENERIC_METHOD">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>
+  <partialType name="JV_INST_METHOD">
+	<inheritedCategory name="Coverage_Cat"/>
+  </partialType>  
+ 
+</metaModel>

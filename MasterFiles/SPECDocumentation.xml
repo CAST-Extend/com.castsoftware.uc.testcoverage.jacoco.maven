@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="associatedValueName">
+	</metric>
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="description">
+		<english>This rule detects the classes that have a low test coverage i.e. &lt; 50% (fixed). This metric is computed using Jacoco coverage tool, combining the jacoco branch and line coverage metrics to compute a the class coverage %.</english>
+	</metric>
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="name">
+		<english>Avoid classes with low test coverage</english>
+	</metric>
+	<!-- metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="output">
+		<english></english>
+	</metric -->
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="rationale">
+		<english>Java classes should be covered by tests.</english>
+	</metric>
+	<!-- metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="reference">
+		<english></english>
+	</ metric -->
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="remediation">
+		<english>Add tests covering the non covered java classes.</english>
+	</metric>
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="remediationSample"/>
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="sample">
+		<english>See Reference</english>
+	</metric>
+	<metric id="2203000" type="quality-rule" originalName="Avoid classes with low test coverage" section="total">
+		<english>Number of Java classes</english>
+	</metric>
+</root>

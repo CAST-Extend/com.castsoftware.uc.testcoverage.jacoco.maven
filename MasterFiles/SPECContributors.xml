@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <metric id="61028" type="technical-criterion" originalName="Documentation - Volume of Comments" contributorId="2203000" contributorType="quality-rule" contributorOriginalName="Avoid classes with low test coverage" critical="false" weight="7" />
+</root>
