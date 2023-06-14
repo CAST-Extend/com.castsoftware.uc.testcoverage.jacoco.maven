@@ -2,16 +2,16 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>com.castsoftware.uc.testcoverage.jacoco.maven</id>
-    <version>1.0.3</version>
+    <version>1.0.5</version>
     <title>Test coverage</title>
     <authors>CAST User Community</authors>
     <owners>CAST</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>http://www.castsoftware.com/ps/doc/extension/license</licenseUrl>
     <projectUrl>https://github.com/CAST-Extend/com.castsoftware.uc.testcoverage.jacoco.maven/wiki</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/com.castsoftware.uc.testcoverage.jacoco.maven/master/training200x200.png</iconUrl>
-    <description>This extension injects jacoco maven test coverage results into CAST Imaging</description>
-    <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.testcoverage.jacoco.maven/wiki#version-053</releaseNotes>
+    <iconUrl>https://raw.githubusercontent.com/CAST-Extend/com.castsoftware.uc.testcoverage.jacoco.maven/master/jacoco_icon.png</iconUrl>
+    <description>This extension injects jacoco maven test coverage results into CAST Imaging and allow to see the java test coverage per application in Health Dashboard and provides quality rules to see the java artifacts that have low test coverage % (java classes)</description>
+    <releaseNotes>https://github.com/CAST-Extend/com.castsoftware.uc.testcoverage.jacoco.maven/wiki#version-105</releaseNotes>
     <tags>CAIP</tags>
     <dependencies>
       <dependency id="CAIP" version="8.3.3" />

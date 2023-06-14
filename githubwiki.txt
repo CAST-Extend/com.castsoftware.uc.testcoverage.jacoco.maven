@@ -1,0 +1,106 @@
+Welcome to the com.castsoftware.uc.testcoverage.jacoco.maven wiki!
+>Warning: The Extension described in this document is delivered as-is. This Extension is made available by CAST User Community and governed by Open Source License. Please consider all necessary steps to validate and to test the Extension in your environment before using it in production.        
+The extension is published under GNU LGPL v3 open source license
+
+# Table of content
+- [Introduction](#introduction)
+- [In what situation should you install this extension?](#situation)
+- [Pre-requisites](#prerequisites)
+- [Supported DBMS servers](#SupportedDBMS)
+- [Configuration instructions](#Configuration)
+- [Operation instructions](#Operation)
+   - [Source preparation and analysis configuration instructions](#preparation)
+   - [Analysis processing](#Analysis)
+   - [Checks to be performed upon analysis](#Checks)
+- [What results can you expect?](#expect)
+   - [List of quality rules](#rules)
+- [Known issues](#KnownIssues)
+- [Limitations and potential enhancements](#Limitations)
+- [Release notes](#ReleasesNotes)
+<a name="introduction"></a>
+# Introduction 
+This extension injects jacoco maven test coverage results into CAST Imaging and allow to see the java test coverage per application in Health Dashboard and provides quality rules to see the java artifacts that have low test coverage % (java classes)  
+
+<a name="situation"></a>
+# In what situation should you install this extension?
+When you have a Java using Maven packaging and you want to measure the test coverage.   
+
+<a name="prerequisites"></a>
+# Prerequisites 
+- Have a python runtime 3.10 or above installed.  
+- The code provided must contains for each java pom project folder target/site/jacoco containing the results of maven jacoco plugin. This "build" operation must be run before CAST analysis. 
+
+<a name="AIPcompatibility"></a>
+# CAST AIP versions compatibility
+This extension is compatible with **all AIP versions from 8.3.3** and above, and will be also in future versions.
+ 
+<a name="SupportedDBMS"></a>
+# Supported DBMS servers
+
+This extension is compatible with the following DBMS servers (hosting the Analysis Service):
+
+| CAST AIP release       | CSS 3.0| CSS 4.0| PG on Linux |
+| -----------------------|:----:|:------:|:--------: |
+| All supported releases |   ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png)  |    ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png)   |    ![Supported](https://github.com/CAST-Extend/resourceALT/blob/master/check.png)    | 
+
+
+<a name="Configuration"></a>
+# Configuration instructions
+Once registered, this extension is integrated to the normal process of CAST analysis.  
+It requires additionaly :  
+- to install in AIP Console this Coverage extension com.castsoftware.uc.testcoverage.jacoco.maven, a.k.a "Test coverage" in Console
+- to add the test coverage background fact tile in Standalone Health dashboard : use the 2 cmp.json and app.json template files provided in "/samples/hd tiles sample" folder and copy them to the proper configuration folder. See https://doc.castsoftware.com/display/DASHBOARDS/Health+Dashboard+tile+management
+
+<a name="Operation"></a>
+# Operation instructions
+After the analysis, it's required to load the background fact metric 66004 results into the Measure schema using CAST Health dashboard REST API.
+One way of doing it, is to use the bat script inject_backgroundfact_coverage.bat provided.  
+You need to configure in this script :  
+`SET APPNAME=MyApp` : the application name  
+`SET DEPLOYFOLDER=C:/ProgramData/CAST/AIP-Console-Standalone/deploy/%APPNAME%` the Deploy folder where the code was analyzed by AIP Console 
+application name  
+And then run the script  
+<a name="preparation"></a>
+## Source preparation and analysis configuration instructions
+1. The source code must contain Maven configuration files (pom.xml) that contains jacoco maven plugin, see below example :  
+        `<build>`  
+	  `<plugins>`  
+            `<!-- Runs JUnit tests under code coverage and creates a coverage report (target/site/jacoco/index.html). -->`  
+            `<plugin>`  
+                `<groupId>org.jacoco</groupId>`  
+                `<artifactId>jacoco-maven-plugin</artifactId>`  
+                `<version>0.8.5</version>`  
+            `</plugin>`  
+	`</build>`    
+2. When uploading the code to Console, the standard exclusion patterns must be modified to allow the content of target/site/jacoco folder to be analyzed.  
+
+<a name="Analysis"></a>
+## Analysis processing
+Analysis will be conducted as usual.
+
+<a name="expect"></a>
+# What results can you expect?
+- Check that a file named coverageResults.ini has been generated in the deploy folder  
+- Check that the coverage ratio has been computed and filled in the Coverage tile in Health dashboard at portfolio and application level  
+- Check that you have a quality rule named "Avoid classes with low test coverage" in Engineering and Health dashboards  
+- In Imaging the java classes contain a "Test coverage" property expression the ration of % coverage  
+The coverage is computed as below at the class and application level :  
+(sum(branch_covered) + sum(line_covered)) / (sum(branch_to_covered) + sum(line_to_covered))
+<a name="rules"></a>
+## List of quality rules
+- Avoid classes with low test coverage
+
+<a name="KnownIssues"></a>
+# Known issues
+N/A
+
+<a name="Limitations"></a>
+# Limitations and potential enhancements 
+Only Maven packaging / Java technology / Jacoco coverage tool are managed by this extension so far.  
+The coverage is computing only at class and application level so far.  
+<a name="ReleasesNotes"></a>
+# Release Notes
+## Version 1.0.5
+* minor fixes
+## Version 1.0.3
+* Initial publication

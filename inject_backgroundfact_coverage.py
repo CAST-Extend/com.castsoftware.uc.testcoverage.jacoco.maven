@@ -185,7 +185,9 @@ if __name__ == '__main__':
                                 schema_central = config['DEFAULT']['schema_central']                                
                                 logger.info("    overall_class_test_coverage to be loaded in the background fact metric=%s for application %s | schema %s" % (str(overall_class_test_coverage), application_name, schema_central) )
                                 
-                                modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id, objsnapshot.snapshotid)
+                                #modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id, objsnapshot.snapshotid)
+                                # modulelist for all snapshot
+                                modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id)
                                 rest_service_aip.update_backgroundfactmetric(domain.name, objapp.id, objsnapshot.snapshotid, metricid, overall_class_test_coverage, modulelist, schema_central, application_name)
                                 LogUtils.loginfo(logger, "  Background facts loaded", True)
 

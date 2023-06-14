@@ -821,6 +821,10 @@ class AIPRestAPI:
     def get_application_snapshot_modules_json(self, domainname, applicationid, snapshotid):
         request = domainname + "/applications/" + str(applicationid) + "/snapshots/" + str(snapshotid) + "/modules" 
         return self.restutils.execute_requests_get(request)    
+
+    def get_application_all_snapshots_modules_json(self, domainname, applicationid):
+        request = domainname + "/applications/" + str(applicationid) + "/modules" 
+        return self.restutils.execute_requests_get(request)    
     
     def get_application_snapshots(self, domainname, applicationid):
         snapshotlist = Snapshot.loadlist(self.get_application_snapshots_json(domainname, applicationid))
@@ -829,8 +833,12 @@ class AIPRestAPI:
             it.modules = modulelist 
         return snapshotlist 
     
-    def get_application_modules(self, domainname, applicationid, snapshotid):
-        modulelist = Module.loadlist(self.get_application_snapshot_modules_json(domainname, applicationid, snapshotid))
+    def get_application_modules(self, domainname, applicationid, snapshotid=None):
+        if snapshotid != None:
+            modulelist = Module.loadlist(self.get_application_snapshot_modules_json(domainname, applicationid, snapshotid))
+        else:
+            modulelist = Module.loadlist(self.get_application_all_snapshots_modules_json(domainname, applicationid))
+        
         return modulelist
     
     ########################################################################

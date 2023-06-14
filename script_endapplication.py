@@ -277,7 +277,8 @@ class TestCoverageApplication(ApplicationLevelExtension):
                 
                 current_project_class_test_coverage = self.compute_code_coverage(current_project_branch_missed, current_project_branch_covered, current_project_line_missed, current_project_line_covered)
                 logging.info('Current project class coverage %s%%' % str(current_project_class_test_coverage))
-                config['DEFAULT']['project_class_test_coverage_for_' + jacoco_csv_filepath] = str(current_project_class_test_coverage)                
+                output_file = jacoco_csv_filepath.replace(':', '_').replace('\\', '_').replace('/', '_')
+                config['DEFAULT']['project_class_test_coverage_for_' + output_file] = str(current_project_class_test_coverage)                
                 
             self.overall_class_test_coverage = self.compute_code_coverage(overall_branch_missed, overall_branch_covered, overall_line_missed, overall_line_covered)
             logging.info('Overall class coverage %s%%' % str(self.overall_class_test_coverage))
