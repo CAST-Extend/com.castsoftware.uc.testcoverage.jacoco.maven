@@ -100,6 +100,8 @@ Only Maven packaging / Java technology / Jacoco coverage tool are managed by thi
 The coverage is computing only at class and application level so far.  
 <a name="ReleasesNotes"></a>
 # Release Notes
+## Version 1.0.6
+* load also the background facts in central schema  
 ## Version 1.0.5
 * minor fixes
 ## Version 1.0.3

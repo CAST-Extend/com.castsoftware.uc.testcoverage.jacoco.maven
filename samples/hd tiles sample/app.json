@@ -239,17 +239,6 @@
           }
         },
 		{
-		"id": 660011,
-		"plugin": "BackgroundFactsResults",
-		"color": "purple",
-		"parameters": {
-			"widget":"number",
-			"aggregation":"average",
-			"title": "Test coverage %",
-			"backgroundFact": {"id": 66004,"format": "0.0%"}
-		}
-		},
-		{
 			"id": 660012,
 			"plugin": "BackgroundFactsEvolution",
 			"color": "purple",

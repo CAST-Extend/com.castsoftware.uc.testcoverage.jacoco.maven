@@ -162,37 +162,36 @@ if __name__ == '__main__':
             idomain += 1
             LogUtils.loginfo(logger, "Domain " + domain.name + " | progress:" + str(idomain) + "/" + str(len(listdomains)), True)
  
-            # only health domains
-            if domain.name == 'AAD':
-                listapplications = rest_service_aip.get_applications(domain)
-                for objapp in listapplications:
-                    if applicationfilter != None and not re.match(applicationfilter, objapp.name):
-                        logger.info('Skipping application : ' + objapp.name)
-                        continue                
-                    elif applicationfilter == None or applicationfilter == '' or re.match(applicationfilter, objapp.name):
-                        LogUtils.loginfo(logger, "Processing application " + objapp.name, True)
-                        # snapshot list
-                        logger.info('Loading the application snapshot')
-                        listsnapshots = rest_service_aip.get_application_snapshots(domain.name, objapp.id)
-                        
-                        for objsnapshot in listsnapshots:
-                            logger.info("    Snapshot " + objsnapshot.href + '#' + objsnapshot.snapshotid)
-                            if os.path.isfile(ini_coveragefile):
-                                config = configparser.ConfigParser()
-                                config.read(ini_coveragefile)
-                                overall_class_test_coverage = config['DEFAULT']['overall_class_test_coverage']
-                                application_name = config['DEFAULT']['application_name']
-                                schema_central = config['DEFAULT']['schema_central']                                
-                                logger.info("    overall_class_test_coverage to be loaded in the background fact metric=%s for application %s | schema %s" % (str(overall_class_test_coverage), application_name, schema_central) )
-                                
-                                #modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id, objsnapshot.snapshotid)
-                                # modulelist for all snapshot
-                                modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id)
-                                rest_service_aip.update_backgroundfactmetric(domain.name, objapp.id, objsnapshot.snapshotid, metricid, overall_class_test_coverage, modulelist, schema_central, application_name)
-                                LogUtils.loginfo(logger, "  Background facts loaded", True)
+            # all domains
+            listapplications = rest_service_aip.get_applications(domain)
+            for objapp in listapplications:
+                if applicationfilter != None and not re.match(applicationfilter, objapp.name):
+                    logger.info('Skipping application : ' + objapp.name)
+                    continue                
+                elif applicationfilter == None or applicationfilter == '' or re.match(applicationfilter, objapp.name):
+                    LogUtils.loginfo(logger, "Processing application " + objapp.name, True)
+                    # snapshot list
+                    logger.info('Loading the application snapshot')
+                    listsnapshots = rest_service_aip.get_application_snapshots(domain.name, objapp.id)
+                    
+                    for objsnapshot in listsnapshots:
+                        logger.info("    Snapshot " + objsnapshot.href + '#' + objsnapshot.snapshotid)
+                        if os.path.isfile(ini_coveragefile):
+                            config = configparser.ConfigParser()
+                            config.read(ini_coveragefile)
+                            overall_class_test_coverage = config['DEFAULT']['overall_class_test_coverage']
+                            application_name = config['DEFAULT']['application_name']
+                            schema_central = config['DEFAULT']['schema_central']                                
+                            logger.info("    overall_class_test_coverage to be loaded in the background fact metric=%s for application %s | schema %s" % (str(overall_class_test_coverage), application_name, schema_central) )
+                            
+                            #modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id, objsnapshot.snapshotid)
+                            # modulelist for all snapshot
+                            modulelist = rest_service_aip.get_application_modules(domain.name, objapp.id)
+                            rest_service_aip.update_backgroundfactmetric(domain.name, objapp.id, objsnapshot.snapshotid, metricid, overall_class_test_coverage, modulelist, schema_central, application_name)
+                            LogUtils.loginfo(logger, "  Background facts loaded", True)
 
-                            # process only last snapshot
-                            break
+                        # process only last snapshot
+                        break
                                         
     except: # catch *all* exceptions
         tb = traceback.format_exc()
